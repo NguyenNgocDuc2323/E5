@@ -1,6 +1,6 @@
 package Service;
 
-import Entiy.Customer;
+import Entity.Customer;
 
 import java.util.Comparator;
 import java.util.List;
@@ -17,10 +17,4 @@ public class CustomerService {
     public List<Customer> getCustomers() {
         return customers;
     }
-    public void sortCustomerByName() {
-        customers.stream()
-                .sorted(Comparator.comparing(Customer::getName))
-                .forEach(System.out::println);
-    }
-
 }

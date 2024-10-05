@@ -1,4 +1,4 @@
-package Entiy;
+package Entity;
 import java.time.LocalDate;
 public class Invoice extends Customer{
     private int id;

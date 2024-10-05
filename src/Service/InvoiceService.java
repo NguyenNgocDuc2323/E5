@@ -1,8 +1,7 @@
 package Service;
 
-import Entiy.Customer;
-import Entiy.Gender;
-import Entiy.Invoice;
+import Entity.Gender;
+import Entity.Invoice;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -38,45 +37,22 @@ public class InvoiceService {
         int dis = getCustomerDiscount();
         return amount - (amount * dis);
     }
-    public Optional<Invoice> getInvoiceById(int id) {
+    public Invoice getInvoiceById(int id) {
         Optional<Invoice> foundByIdInvoice =  invoices.stream()
                 .filter(invoice -> invoice.getId() == id)
                 .findFirst();
-        if(foundByIdInvoice.isPresent()){
-            return foundByIdInvoice;
-        }
-        else{
-            return Optional.empty();
-        }
+        return foundByIdInvoice.isPresent() ? foundByIdInvoice.get() : null;
     }
     public List<Invoice> getInvoiceByAmount(double amount) {
         List<Invoice> foundByAmountInvoices =  invoices.stream()
                 .filter(invoice -> invoice.getAmount() == amount)
                 .toList();
-        if(foundByAmountInvoices.isEmpty()){
-            return null;
-        }
-        else{
-            return foundByAmountInvoices;
-        }
-    }
-    public void sortCustomerByInvoice(){
-        invoices.stream()
-                .sorted(Comparator.comparing(invoice -> invoice.getAmount()))
-                .forEach(System.out::println);
+        return foundByAmountInvoices.size() > 0 ? foundByAmountInvoices : null;
     }
     public List<Invoice> getDiscount8Month() {
-        List<Invoice> discount8MonthInvoices = new ArrayList<>();
         List<Invoice> eightMonthInvoices = invoices.stream()
-                .filter(invoice -> invoice.getDateTime().getMonthValue() == 8)
+                .filter(invoice -> invoice.getDateTime().getMonthValue() == 8 && invoice.getCustomer().getGender() == Gender.F)
                 .toList();
-        eightMonthInvoices.forEach(invoice -> {
-            if (invoice.getCustomer().getGender() == Gender.F) {
-                invoice.getCustomer().setDiscount(invoice.getCustomer().getDiscount() + 10);
-                discount8MonthInvoices.add(invoice);
-            }
-        });
-        return discount8MonthInvoices;
+        return eightMonthInvoices.size() > 0 ? eightMonthInvoices : null;
     }
-
 }

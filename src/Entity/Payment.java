@@ -1,4 +1,4 @@
-package Entiy;
+package Entity;
 
 public class Payment {
     private Account account;
@@ -15,5 +15,21 @@ public class Payment {
 
     public Invoice getInvoice() {
         return invoice;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "account=" + account +
+                ", invoice=" + invoice +
+                '}';
     }
 }

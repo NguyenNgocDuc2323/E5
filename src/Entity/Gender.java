@@ -1,4 +1,4 @@
-package Entiy;
+package Entity;
 
 public enum Gender {
     M("Male"),F("Female");

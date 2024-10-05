@@ -1,7 +1,7 @@
 import Controller.AccountController;
 import Controller.CustomerController;
 import Controller.InvoiceController;
-import Entiy.*;
+import Entity.*;
 import Service.AccountService;
 import Service.CustomerService;
 import Service.InvoiceService;
@@ -44,25 +44,25 @@ public class Main {
         System.out.println("Sort Customer By Invoice : ");
         iv.sortCustomerByInvoice();
 //        C
-        System.out.print("\nInput Account ID : ");
-        int accountId = scanner.nextInt();
-        Optional<Account> foundAccById =  ac.getAccountById(accountId);
-        System.out.println(foundAccById);
-        scanner.nextLine();
-        System.out.print("\nInput Account Name : ");
-        String accountName = scanner.nextLine();
-        List<Account> getAccByNames = ac.getAccountByName(accountName);
-        getAccByNames.forEach(System.out::println);
-
-        System.out.print("\nInput Invoice ID : ");
-        int invoiceId = scanner.nextInt();
-        Optional<Invoice> getInvoiceById = iv.getInvoiceById(invoiceId);
-        System.out.println(getInvoiceById);
-        scanner.nextLine();
-        System.out.print("\nInput Invoice Amount : ");
-        double invoiceAmount = scanner.nextDouble();
-        List<Invoice> getInvoiceByAmount = iv.getInvoiceByAmount(invoiceAmount);
-        getInvoiceByAmount.forEach(System.out::println);
+//        System.out.print("\nInput Account ID : ");
+//        int accountId = scanner.nextInt();
+//        Account foundAccById =  ac.getAccountById(accountId);
+//        System.out.println(foundAccById);
+//        scanner.nextLine();
+//        System.out.print("\nInput Account Name : ");
+//        String accountName = scanner.nextLine();
+//        List<Account> getAccByNames = ac.getAccountByName(accountName);
+//        getAccByNames.forEach(System.out::println);
+//
+//        System.out.print("\nInput Invoice ID : ");
+//        int invoiceId = scanner.nextInt();
+//        Invoice getInvoiceById = iv.getInvoiceById(invoiceId);
+//        System.out.println(getInvoiceById);
+//        scanner.nextLine();
+//        System.out.print("\nInput Invoice Amount : ");
+//        double invoiceAmount = scanner.nextDouble();
+//        List<Invoice> getInvoiceByAmount = iv.getInvoiceByAmount(invoiceAmount);
+//        getInvoiceByAmount.forEach(System.out::println);
 
 //        D:
         System.out.println("\n Câu D : ");

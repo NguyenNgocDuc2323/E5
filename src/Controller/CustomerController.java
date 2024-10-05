@@ -1,8 +1,9 @@
 package Controller;
 
-import Entiy.Customer;
+import Entity.Customer;
 import Service.CustomerService;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class CustomerController {
@@ -12,7 +13,9 @@ public class CustomerController {
         this.cs = cs;
         this.customers = cs.getCustomers();
     }
-    public void sortCustomerByName(){
-        cs.sortCustomerByName();
+    public void sortCustomerByName() {
+        customers.stream()
+                .sorted(Comparator.comparing(Customer::getName))
+                .forEach(System.out::println);
     }
 }

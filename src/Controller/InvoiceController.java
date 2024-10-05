@@ -1,8 +1,9 @@
 package Controller;
 
-import Entiy.Invoice;
+import Entity.Invoice;
 import Service.InvoiceService;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,54 +18,35 @@ public class InvoiceController {
     }
     public int getCustomerId(){
         int cusId = is.getCustomerId();
-        if(cusId < 0){
-            return -1;
-        }
-        return cusId;
+        return cusId < 0 ? -1 : cusId;
     }
     public String getCustomerName(){
         String cusName = is.getCustomerName();
-        if(cusName == null){
-            return "";
-        }
-        return cusName;
+        return cusName == null ? "" : cusName;
     }
     public int getCustomerDiscount(){
         int cusDis = is.getCustomerDiscount();
-        if(cusDis < 0){
-            return -1;
-        }
-        return cusDis;
+        return cusDis < 0 ? -1 : cusDis;
     }
     public double getAmountAfterDiscount(){
         double amountAfterDis = is.getAmountAfterDiscount();
-        if(amountAfterDis < 0){
-            return -1;
-        }
-        return amountAfterDis;
+        return amountAfterDis < 0 ? -1 : amountAfterDis;
     }
-    public Optional<Invoice> getInvoiceById(int id){
-        Optional<Invoice> invoice = is.getInvoiceById(id);
-        if(invoice.isPresent()){
-            return invoice;
-        }
-        return Optional.empty();
+    public Invoice getInvoiceById(int id){
+        Invoice invoice = is.getInvoiceById(id);
+        return invoice == null ? null : invoice;
     }
     public List<Invoice> getInvoiceByAmount(double amount){
         List<Invoice> invoices = is.getInvoiceByAmount(amount);
-        if(invoices.isEmpty()){
-            return null;
-        }
-        return invoices;
+        return invoices.size() > 0 ? invoices : null;
     }
     public void sortCustomerByInvoice(){
-        is.sortCustomerByInvoice();
+        invoices.stream()
+                .sorted(Comparator.comparing(invoice -> invoice.getAmount()))
+                .forEach(System.out::println);
     }
     public List<Invoice> getDiscount8Month(){
         List<Invoice> discount8Month = is.getDiscount8Month();
-        if(discount8Month.isEmpty()){
-            return null;
-        }
-        return discount8Month;
+        return discount8Month.size() > 0 ? discount8Month : null;
     }
 }

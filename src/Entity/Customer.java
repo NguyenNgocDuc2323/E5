@@ -1,4 +1,4 @@
-package Entiy;
+package Entity;
 
 public class Customer {
     private int id;

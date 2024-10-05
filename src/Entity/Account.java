@@ -1,4 +1,4 @@
-package Entiy;
+package Entity;
 
 public class Account extends Customer{
     private int id;

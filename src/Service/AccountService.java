@@ -1,11 +1,9 @@
 package Service;
 
-import Entiy.Account;
-import Entiy.Customer;
-import Entiy.Invoice;
+import Entity.Account;
+import Entity.Invoice;
 import Global.Global;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -27,34 +25,18 @@ public class AccountService {
         return accounts;
     }
 
-    public Optional<Account> getAccountById(int id) {
+    public Account getAccountById(int id) {
         Optional<Account> foundById = accounts.stream()
                 .filter(acc -> acc.getId() == id)
                 .findFirst();
-        if (foundById.isPresent()) {
-            return foundById;
-        }
-        return Optional.empty();
+        return foundById.isPresent() ? foundById.get() : null;
     }
 
     public List<Account> getAccountByName(String name) {
         List<Account> foundByNameAccs = accounts.stream()
                 .filter(acc -> Global.ignoreCase(name, acc.getAccountName()))
                 .toList();
-        if (foundByNameAccs.isEmpty()) {
-            return null;
-        }
-        return foundByNameAccs;
+        return foundByNameAccs.size() > 0 ? foundByNameAccs : null;
     }
-
-    public void sortCustomerByAccount() {
-        accounts.stream()
-                .sorted(Comparator.comparing(account -> account.getBalance()))
-                .forEach(System.out::println);
-    }
-
-
-
-
 }
 
