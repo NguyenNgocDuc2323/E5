@@ -51,18 +51,18 @@ public class Main {
 //        scanner.nextLine();
 //        System.out.print("\nInput Account Name : ");
 //        String accountName = scanner.nextLine();
-//        List<Account> getAccByNames = ac.getAccountByName(accountName);
-//        getAccByNames.forEach(System.out::println);
+//        List<Account> foundAccByNames = ac.getAccountByName(accountName);
+//        foundAccByNames.forEach(System.out::println);
 //
 //        System.out.print("\nInput Invoice ID : ");
 //        int invoiceId = scanner.nextInt();
-//        Invoice getInvoiceById = iv.getInvoiceById(invoiceId);
-//        System.out.println(getInvoiceById);
+//        Invoice foundInvoiceById = iv.getInvoiceById(invoiceId);
+//        System.out.println(foundInvoiceById);
 //        scanner.nextLine();
 //        System.out.print("\nInput Invoice Amount : ");
 //        double invoiceAmount = scanner.nextDouble();
-//        List<Invoice> getInvoiceByAmount = iv.getInvoiceByAmount(invoiceAmount);
-//        getInvoiceByAmount.forEach(System.out::println);
+//        List<Invoice> foundInvoiceByAmount = iv.getInvoiceByAmount(invoiceAmount);
+//        foundInvoiceByAmount.forEach(System.out::println);
 
 //        D:
         System.out.println("\n Câu D : ");
